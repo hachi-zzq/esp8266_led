@@ -1,0 +1,36 @@
+
+如果你的驱动程序是一个 .bin 文件，通常这意味着它是一个 二进制固件文件，而不是源代码。要将 .bin 文件上传到 ESP8266，你需要使用专门的工具（比如 esptool.py）来烧录这个二进制文件。
+
+步骤 1：准备工具
+你需要安装一些工具来烧录 .bin 文件到 ESP8266：
+
+esptool.py：这是一个 Python 工具，用于烧录 ESP8266 和 ESP32 设备上的固件。
+
+安装 esptool.py：
+
+bash
+复制代码
+pip install esptool
+确保 ESP8266 已连接：将 ESP8266 开发板通过 USB 连接到你的电脑，确保你可以通过串口访问它。
+
+步骤 2：进入闪存模式
+你需要将 ESP8266 进入 闪存模式，以便烧录固件。这通常需要按住开发板上的 Flash 按钮，然后按下 Reset 按钮，或者使用开发板的 自动闪存模式。
+
+步骤 3：烧录 .bin 文件
+你可以使用 esptool.py 工具将 .bin 文件上传到 ESP8266。
+
+查找串口设备：确保你的 ESP8266 开发板正确连接，使用以下命令查找串口设备：
+
+bash
+复制代码
+ls /dev/tty.*
+查找与 ESP8266 连接的串口（通常是 /dev/ttyUSB0 或 /dev/cu.usbserial）。
+
+烧录固件：使用 esptool.py 来烧录 .bin 文件。假设你的 .bin 文件路径为 firmware.bin，ESP8266 设备的串口是 /dev/ttyUSB0，可以执行以下命令：
+
+bash
+复制代码
+esptool.py --port /dev/ttyUSB0 write_flash 0x00000 firmware.bin
+这个命令将把 firmware.bin 文件写入 ESP8266 的闪存，起始地址为 0x00000。确保 firmware.bin 是你想要烧录的正确文件。
+
+如果需要在其他起始地址烧录固件，调整 0x00000 为相应的地址（通常对于 ESP8266 固件，起始地址是 0x00000）。

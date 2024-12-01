@@ -12,9 +12,9 @@ void setup() {
     Serial.begin(115200);
     initTft();    
     // 连接到 WiFi
-    connectToWiFi();
+    // connectToWiFi();
 
-    tft.drawRGBBitmap(128-50, 128-50, image, 50, 50); // 假设图像大小为 128x128
+    tft.drawRGBBitmap(5, 5, epd_bitmap_seestar_logo_2_ezgif, 40, 40); // 假设图像大小为 128x128
 }
 
 
@@ -26,6 +26,15 @@ unsigned long requestInterval = 6000*5;  // 每 1 分钟请求一次 API
 bool isFirst = true;
 
 void loop() {
+      for (int frame = 0; frame < FRAME_COUNT ; frame++) {
+        tft.drawRGBBitmap(128-50, 128-50, frames[frame], 50, 50); // 假设图像大小为 128x128
+        delay(100); // 控制帧率
+    }
+    // 延迟1s
+    delay(1000);
+}
+
+void loop2() {
     if (isFirst){
         tft.setCursor(1,30);
         tft.setTextSize(2);

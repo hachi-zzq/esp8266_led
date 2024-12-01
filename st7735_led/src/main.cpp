@@ -7,6 +7,11 @@
 #include <screen.h>
 #include <SPI.h>
 
+const uint8_t numberLeftPix = 42;
+const uint8_t leftPix = 5;
+const uint8_t topPix = 5;
+const uint8_t titleNumberMargin = 5;
+const uint8_t blockMargin = 10;
 
 void setup() {
     Serial.begin(115200);
@@ -14,7 +19,39 @@ void setup() {
     // 连接到 WiFi
     // connectToWiFi();
 
-    tft.drawRGBBitmap(5, 5, epd_bitmap_seestar_logo_2_ezgif, 40, 40); // 假设图像大小为 128x128
+    tft.drawRGBBitmap(leftPix, leftPix, epd_bitmap_seestar_logo_2_ezgif, 30, 30); 
+    tft.drawRGBBitmap(topPix, 90, epd_bitmap_logo_fddb51a7_ezgif, 30, 30); 
+
+  // 1 size = 8 ,2 size = 16
+
+    tft.setTextColor(numberColor);
+    tft.setTextSize(1);
+    tft.setCursor(numberLeftPix, topPix);
+    tft.print("S30");
+
+    // 18 + 16 + 10 = 44
+    tft.setCursor(numberLeftPix, topPix + 8 + titleNumberMargin + 16 + blockMargin);
+    tft.print("S50");
+
+    tft.setTextColor(defaultTextColor);
+    // 5+8+5
+    tft.setCursor(numberLeftPix, topPix + 8 + titleNumberMargin);
+    tft.setTextSize(2);
+    tft.print("178888");
+
+    // 44 +8 + 5 = 57
+    tft.setCursor(numberLeftPix, topPix + 8 + titleNumberMargin + 16 + blockMargin + 8 + titleNumberMargin);
+    tft.setTextSize(2);
+    tft.print("98765");
+
+    // 绘制横线
+    int x1 = numberLeftPix, y1 = 90, x2 = 128-5, y2 = 90;
+    tft.drawLine(x1, y1, x2, y2, ST7735_WHITE); // 绘制白色横线
+
+    tft.setCursor(numberLeftPix, 100);
+    tft.setTextSize(1);
+    tft.print("998765");
+    
 }
 
 

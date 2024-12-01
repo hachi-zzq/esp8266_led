@@ -7,6 +7,7 @@
 #include <Adafruit_ST7735.h>
 
 const uint16_t defaultTextColor = 0x9F9E;
+const uint16_t numberColor = 0x6dcb;
 const uint16_t defaultScreenColor =  0x2965;
 const uint8_t defaultTextSize = 1;
 

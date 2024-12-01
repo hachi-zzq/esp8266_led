@@ -29,6 +29,7 @@ void loop() {
     lastRequestTime = currentMillis;
     tft.fillScreen(defaultScreenColor);
     drawImageAndNumber(millis(),millis(), millis());
+    Serial.println("drawImageAndNumber");
   }
 
   for (int frame = 0; frame < FRAME_COUNT ; frame++) {
@@ -47,6 +48,8 @@ void loop2() {
     // 延迟1s
     delay(1000);
 }
+
+bool isFirst = true;
 
 void loop3() {
     if (isFirst){

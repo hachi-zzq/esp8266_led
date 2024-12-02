@@ -14,8 +14,8 @@ const uint8_t defaultTextSize = 1;
 const uint8_t numberLeftPix = 42;
 const uint8_t leftPix = 5;
 const uint8_t topPix = 5;
-const uint8_t titleNumberMargin = 5;
-const uint8_t blockMargin = 10;
+const uint8_t titleNumberMargin = 6;
+const uint8_t blockMargin = 12;
 
 #define TFT_CS   5   // 芯片选择 (D1)
 #define TFT_RST  4   // 重置 (D2)
@@ -85,12 +85,13 @@ void drawImageAndNumber(int s30Number , int s50Number, int imageNumber){
     tft.drawLine(x1, y1, x2, y2, ST7735_WHITE); // 绘制白色横线
 
     // 90 + 1 + 
-    tft.setCursor(numberLeftPix, 90 + 5);
-    tft.setTextColor(numberColor);
-    tft.setTextSize(1);
-    tft.print("Image");
+    // tft.setCursor(numberLeftPix, 90 + 5);
+    // tft.setTextColor(numberColor);
+    // tft.setTextSize(1);
+    // tft.print("Image");
 
-    tft.setCursor(numberLeftPix, 110);
+    tft.setCursor(numberLeftPix, 100);
+    tft.setTextSize(2);
     tft.setTextColor(defaultTextColor);
     tft.print(imageNumber);
 }

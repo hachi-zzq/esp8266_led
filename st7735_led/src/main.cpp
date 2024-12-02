@@ -14,7 +14,7 @@ void setup() {
     // 连接到 WiFi
     // connectToWiFi();
 
-    drawImageAndNumber(178998,18987,989841);
+    // drawImageAndNumber(178998,18987,989841);
 
 
 }
@@ -25,25 +25,25 @@ unsigned long requestInterval = 6000*5;  // 每 1 分钟请求一次 API
 
 void loop() {
 
-  // tft.fillScreen(defaultScreenColor);
+  tft.fillScreen(defaultScreenColor);
 
-  //   drawImageAndNumber(178998,18987,98984);
-
-
-  // delay(10000);
-
-  // tft.fillScreen(defaultScreenColor);
-  // drawS50(78987,789);
-
-  // delay(10000);
+    drawImageAndNumber(178998,18987,98984);
 
 
-  // for (int frame = 0; frame < FRAME_COUNT ; frame++) {
-  //     tft.drawRGBBitmap(128-50, 128-50, frames[frame], 50, 50); // 假设图像大小为 128x128
-  //     delay(100); // 控制帧率
-  // }
-  //   // 延迟1s
-  // delay(1000);
+  delay(10000);
+
+  tft.fillScreen(defaultScreenColor);
+  drawS50(78987,789);
+
+  delay(10000);
+
+
+  for (int frame = 0; frame < FRAME_COUNT ; frame++) {
+      tft.drawRGBBitmap(0, 0, frames[frame], 128, 128); // 假设图像大小为 128x128
+      delay(50); // 控制帧率
+  }
+    // 延迟1s
+  delay(1000);
 }
 
 void loop4() {

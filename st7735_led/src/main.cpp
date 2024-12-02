@@ -30,20 +30,18 @@ void loop() {
     drawImageAndNumber(178998,18987,98984);
 
 
-  delay(10000);
+  delay(30000);
 
   tft.fillScreen(defaultScreenColor);
   drawS50(78987,789);
 
-  delay(10000);
+  delay(30000);
 
 
   for (int frame = 0; frame < FRAME_COUNT ; frame++) {
       tft.drawRGBBitmap(0, 0, frames[frame], 128, 128); // 假设图像大小为 128x128
       delay(50); // 控制帧率
   }
-    // 延迟1s
-  delay(1000);
 }
 
 void loop4() {

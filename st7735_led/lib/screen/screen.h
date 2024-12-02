@@ -30,6 +30,30 @@ void initTft(){
     tft.setTextSize(defaultTextSize);
 }
 
+void drawS50(int total , int month){
+
+    tft.drawRGBBitmap(3, 10, s50_icon, 45, 49); 
+
+    tft.setTextColor(numberColor);
+    // 5+8+5
+    tft.setCursor(60, 20);
+    tft.setTextSize(1);
+    tft.print("Month");
+
+
+    tft.setTextColor(defaultTextColor);
+    // 5+8+5
+    tft.setCursor(60, 38);
+    tft.setTextSize(2);
+    tft.print(month);
+
+    tft.setTextColor(defaultTextColor);
+    // 5+8+5
+    tft.setCursor(12, 82);
+    tft.setTextSize(3);
+    tft.print(total);
+}
+
 void drawImageAndNumber(int s30Number , int s50Number, int imageNumber){
     tft.drawRGBBitmap(leftPix, leftPix, epd_bitmap_seestar_logo_2_ezgif, 30, 30); 
     tft.drawRGBBitmap(topPix, 90, epd_bitmap_logo_fddb51a7_ezgif, 30, 30); 

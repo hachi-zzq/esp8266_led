@@ -14,7 +14,9 @@ void setup() {
     // 连接到 WiFi
     // connectToWiFi();
 
-    drawImageAndNumber(millis(),millis(), millis());
+    // drawImageAndNumber(178998,18987,98984);
+
+    drawS50(78987,789);
 }
 
 // 上次执行 Wi-Fi 请求的时间
@@ -22,6 +24,15 @@ unsigned long lastRequestTime = 0;
 unsigned long requestInterval = 6000*5;  // 每 1 分钟请求一次 API
 
 void loop() {
+  // for (int frame = 0; frame < FRAME_COUNT ; frame++) {
+  //     tft.drawRGBBitmap(128-50, 128-50, frames[frame], 50, 50); // 假设图像大小为 128x128
+  //     delay(100); // 控制帧率
+  // }
+  //   // 延迟1s
+  // delay(1000);
+}
+
+void loop4() {
   unsigned long currentMillis = millis();
    // 每 1 分钟请求一次 API
   if (currentMillis - lastRequestTime >= requestInterval) {
